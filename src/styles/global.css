@@ -1,0 +1,18 @@
+/* font imports */
+@import "@fontsource/orbitron/400.css";
+@import "@fontsource/orbitron/500.css";
+@import "@fontsource/orbitron/700.css";
+@import "@fontsource/orbitron/900.css";
+
+@import "@fontsource/anton/400.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* navbar burger btn */
+@layer components {
+  .hamburger-bar {
+    @apply block h-0.5 w-6 bg-brand-50 duration-300;
+  }
+}

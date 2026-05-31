@@ -1,0 +1,207 @@
+---
+import { navLinks } from "../data/navLinks.js";
+import NavLink from "./NavLink.astro";
+---
+
+<header class="py-6">
+  <nav
+    class="fixed top-6 left-1/2 -translate-x-1/2
+          w-[calc(100%-3rem)] max-w-6xl
+          h-20 flex justify-between items-center px-6
+          tracking-wide uppercase z-50
+          bg-brand-900/10 backdrop-blur-xl
+          rounded-xl shadow-xl border border-brand-50/10
+          transition-transform duration-300">
+    <a href="/" class="font-heading text-xl font-semibold tracking-widest text-brand-50"> Fry_3D </a>
+
+    <!-- decktop menu -->
+    <ul class="hidden lg:flex gap-5">
+      {
+        navLinks.map((link) => {
+          return (
+            <li>
+              <NavLink href={link.href} label={link.label} />
+            </li>
+          );
+        })
+      }
+    </ul>
+
+    <!-- Mobile Button -->
+    <button id="menu-btn" class="lg:hidden burger-3d">
+      <div class="inner">
+        <div class="face front">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="face back">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </button>
+  </nav>
+
+  <!-- Mobile Sidebar -->
+  <div
+    id="mobile-menu"
+    class="fixed left-1/2 -translate-x-1/2 top-28
+          w-[calc(100%-3rem)]
+          bg-brand-900/10 backdrop-blur-xl
+          rounded-xl border border-brand-50/10
+          overflow-hidden shadow-xl
+          opacity-0
+          transition-all duration-500 ease-out">
+    <ul class="flex flex-col justify-center gap-6 text-2xl px-4 py-24">
+      {
+        navLinks.map((link, i) => {
+          return (
+            <li>
+              <NavLink href={link.href} label={link.label} />
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+
+  <style>
+    .burger-3d {
+      width: 32px;
+      height: 32px;
+      position: relative;
+      perspective: 600px;
+      cursor: pointer;
+    }
+
+    .burger-3d .inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+
+    .burger-3d .face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .burger-3d .front span {
+      width: 24px;
+      height: 3px;
+      background: white;
+      margin: 3px 0;
+      border-radius: 2px;
+    }
+
+    .burger-3d .back {
+      transform: rotateY(180deg);
+    }
+
+    .burger-3d .back span {
+      position: absolute;
+      width: 24px;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+    }
+
+    .burger-3d .back span:nth-child(1) {
+      transform: rotate(45deg);
+    }
+
+    .burger-3d .back span:nth-child(2) {
+      transform: rotate(-45deg);
+    }
+
+    #menu-btn.open .inner {
+      transform: rotateY(180deg);
+    }
+  </style>
+
+  <script>
+    // @ts-nocheck    DISABLES TS FOR THIS SCRIPT BLOCK
+
+    const NAV_DEFAULTS = {
+      hideOnScroll: true,
+      hideAfter: 80,
+      showAtTop: true,
+      hiddenClass: "-translate-y-[200px]",
+    };
+
+    function initNav(userOptions = {}) {
+      const options = { ...NAV_DEFAULTS, ...userOptions };
+
+      const nav = document.querySelector("nav");
+      if (!nav || !options.hideOnScroll) return;
+
+      let lastScrollY = window.scrollY;
+      let accumulatedDownScroll = 0;
+
+      function onScroll() {
+        const currentScrollY = window.scrollY;
+        const delta = currentScrollY - lastScrollY;
+
+        // Always visible near top
+        if (options.showAtTop && currentScrollY < options.hideAfter) {
+          nav.classList.remove(options.hiddenClass);
+          accumulatedDownScroll = 0;
+          lastScrollY = currentScrollY;
+          return;
+        }
+
+        // Scrolling down
+        if (delta > 0) {
+          accumulatedDownScroll += delta;
+          if (accumulatedDownScroll >= options.hideAfter) {
+            nav.classList.add(options.hiddenClass);
+          }
+        }
+
+        // Scrolling up
+        if (delta < 0) {
+          nav.classList.remove(options.hiddenClass);
+          accumulatedDownScroll = 0;
+        }
+
+        lastScrollY = currentScrollY;
+      }
+
+      window.addEventListener("scroll", onScroll);
+
+      // Cleanup for SPAs / reuse
+      return () => {
+        window.removeEventListener("scroll", onScroll);
+      };
+    }
+
+    // MOBILE NAV BUTTON BEHAVIOUR
+    function initMobileMenu() {
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      const toggleMenu = () => {
+        menuBtn.classList.toggle("open");
+
+        mobileMenu.classList.toggle("opacity-0");
+        mobileMenu.classList.toggle("opacity-100");
+        document.body.classList.toggle("overflow-hidden");
+      };
+
+      menuBtn?.addEventListener("click", toggleMenu);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      initNav();
+      initMobileMenu();
+    });
+  </script>
+</header>
