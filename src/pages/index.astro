@@ -1,42 +1,81 @@
 ---
+import Button from "../components/Button.astro";
+import Hero from "../components/Hero.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Form from "../components/Form.astro";
 ---
 
 <BaseLayout>
-  <section class="pt-24">
-    <h1>My Astro Template</h1>
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id deleniti blanditiis dolores culpa. Reprehenderit ratione consequatur quas
-      eos ea dolorum nobis corporis rerum, corrupti doloribus quia numquam repellat enim nostrum illo, voluptatum, sequi magnam? Nostrum ea
-      alias aperiam saepe illo amet possimus doloremque deserunt ab ipsa. Placeat perspiciatis fuga alias corrupti similique voluptas vitae
-      aliquam pariatur incidunt, perferendis blanditiis in unde ea impedit id. Molestias, nostrum odit, molestiae impedit a voluptates
-      cupiditate cumque aliquid eius ducimus voluptate sapiente quaerat quod eligendi porro illo. Debitis in quis sed quod illum officiis!
-      Asperiores, reiciendis explicabo. Soluta tempora, sunt, dicta enim facilis libero accusantium unde quasi animi, dignissimos dolor
-      nulla sequi commodi nesciunt expedita similique itaque ratione? Rerum aspernatur quisquam labore distinctio sunt voluptatibus
-      dignissimos natus pariatur aliquam, maxime sint molestias omnis nobis non deserunt ut magni repellat odit quibusdam. Molestias non,
-      minus corporis aliquid iste labore sed expedita voluptatibus assumenda quidem a distinctio libero exercitationem, porro fugiat? Vitae
-      modi nostrum ducimus autem sint numquam asperiores veritatis adipisci quidem quisquam est explicabo, corrupti dolore ea soluta. Quos
-      dolor praesentium cumque amet, unde nam perspiciatis sint autem culpa illum explicabo beatae nemo reiciendis quam obcaecati est vitae
-      aspernatur alias sapiente excepturi. Mollitia vitae accusantium nesciunt quo aperiam. Optio iusto a ut hic non minima porro, nam
-      consequatur soluta odio delectus dolorem? Praesentium aliquam illum voluptatem, provident id reiciendis. Fugiat commodi saepe tempora
-      quis dolor minima consequatur exercitationem incidunt ex, ullam ad sequi alias numquam eum voluptas sed sint labore. Accusamus eaque
-      distinctio recusandae possimus quaerat, obcaecati consequuntur ex expedita quos exercitationem est, corporis inventore. Veniam at
-      necessitatibus repudiandae odit deleniti, aspernatur rem reiciendis inventore dolorem quae voluptatum, commodi maiores. Asperiores
-      voluptates aliquid totam vel exercitationem! Labore id nulla eligendi atque molestiae iste itaque minima nisi aut! Minima, doloribus
-      culpa consectetur eum unde, eos officiis exercitationem non at et velit modi numquam quod. Excepturi veritatis minima sed distinctio
-      sit? Necessitatibus repellendus ad, nihil quo fugiat rem nesciunt possimus voluptatem quam vel, adipisci totam laudantium voluptates
-      voluptatibus aliquam aperiam? Dignissimos, nam aperiam expedita adipisci similique veniam quos dicta est molestiae voluptatibus
-      facilis autem quo atque modi exercitationem commodi obcaecati nobis animi officia perferendis soluta iusto ducimus neque? Cumque,
-      accusamus quae? Eius commodi quasi aut. Quo quam ipsam odio dolor corrupti eos nulla exercitationem a nostrum recusandae illo
-      laboriosam asperiores saepe culpa, in voluptatibus voluptates reprehenderit ad. Recusandae, vero est ipsum eaque earum, temporibus, ut
-      molestias culpa accusantium unde repudiandae voluptates libero molestiae consequatur fugiat laudantium cupiditate repellendus placeat
-      quasi. Necessitatibus saepe unde recusandae voluptatem commodi facilis eaque, voluptatibus ducimus adipisci iure ratione nihil sint
-      omnis impedit expedita illum corporis harum culpa nemo? Hic aut doloremque quae quo optio. Quas aut dicta qui, accusamus
-      exercitationem harum perspiciatis sint illum quibusdam, adipisci labore quam asperiores velit. Debitis nemo numquam natus, est beatae
-      voluptatibus aspernatur fugiat officia nisi eveniet obcaecati velit harum tempore, facilis ipsum neque? Esse excepturi nihil
-      consequuntur, sequi veritatis pariatur quas quos eum cupiditate reiciendis officia eius aperiam sed ipsam eveniet doloremque eos sit
-      delectus earum.
-    </p>
+  <section>
+    <Hero />
+  </section>
+
+  <section class="py-24">
+    <div class="max-w-lg px-6 mx-auto space-y-4">
+      <!-- <div class="w-full max-w-sm h-3 bg-white/10 rounded-full overflow-hidden">
+        <div class="h-full w-[70%] bg-gradient-to-r from-secondary/20 to-secondary rounded-full blink"></div>
+      </div> -->
+
+      <h2 class="text-4xl font-heading text-primary tracking-wide">A little side‑gig with a lot of passion</h2>
+
+      <div class="max-w-md space-y-2">
+        <p class="text-brand-50/80 leading-relaxed">
+          Hey, I’m Billy — I run a small 3D‑printing setup from home. Nothing corporate, nothing over‑engineered. Just a hobby that got a
+          bit out of hand.
+        </p>
+
+        <p class="text-brand-50/80 leading-relaxed">
+          I print the things I love, the things people need, and the ideas people bring to me. If you want something unique, useful, or just
+          plain cool, I’m your guy.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="max-w-lg px-6 mx-auto space-y-8">
+      <h2 class="text-4xl font-heading text-primary tracking-wide">Why choose a local maker</h2>
+
+      <div class="space-y-6">
+        <div>
+          <h3 class="font-display text-white text-lg">Personal Service</h3>
+          <p class="text-white/70 leading-relaxed">
+            You’re not dealing with a big shop. It’s just me — friendly, flexible, and happy to help.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-display text-white text-lg">Quick Turnaround</h3>
+          <p class="text-white/70 leading-relaxed">If the printer’s free, your job gets done fast.</p>
+        </div>
+
+        <div>
+          <h3 class="font-display text-white text-lg">Affordable</h3>
+          <p class="text-white/70 leading-relaxed">No big markups. Just fair prices for materials, time, and a bit of hobby joy.</p>
+        </div>
+
+        <div>
+          <h3 class="font-display text-white text-lg">Made Nearby</h3>
+          <p class="text-white/70 leading-relaxed">
+            Everything’s printed right here in West Yorkshire — no long waits, no overseas shipping.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24">
+    <div class="max-w-sm px-6 text-center mx-auto space-y-6">
+      <h2 class="text-4xl font-heading text-primary tracking-wide">Want something printed?</h2>
+
+      <p class="text-white/75 leading-relaxed">
+        Drop me a message with what you’re thinking — a link, a photo, or even a rough idea is enough to get started.
+      </p>
+
+      <p class="text-white/75 leading-relaxed">Let’s make something cool.</p>
+
+      <div class="my-12">
+        <Button href="/contact" variant="secondary" label="Got an idea? Let’s print it." />
+      </div>
+    </div>
   </section>
 </BaseLayout>

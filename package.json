@@ -9,8 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@fontsource/anton": "^5.2.7",
-    "@fontsource/orbitron": "^5.2.8",
+    "@fontsource/exo-2": "^5.2.8",
+    "@fontsource/oxanium": "^5.2.8",
     "astro": "^5.16.15",
     "pennine-design-system": "file:./pennine-design-system"
   },

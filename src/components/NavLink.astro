@@ -5,7 +5,7 @@ const current = Astro.url.pathname;
 
 <a
   href={href}
-  class={`hover:bg-primary/10 ${current === href ? "text-primary" : ""} 
+  class={`px-3 py-2 rounded-md hover:bg-primary/5 transition-all duration-200 ${current === href ? " bg-primary/5" : ""} 
   }`}>
   {label}
 </a>

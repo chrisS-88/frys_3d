@@ -6,7 +6,7 @@ import NavLink from "./NavLink.astro";
 <header class="py-6">
   <nav
     class="fixed top-6 left-1/2 -translate-x-1/2
-          w-[calc(100%-3rem)] max-w-6xl
+          w-[calc(100%-3rem)] max-w-xl
           h-20 flex justify-between items-center px-6
           tracking-wide uppercase z-50
           bg-brand-900/10 backdrop-blur-xl
@@ -130,58 +130,58 @@ import NavLink from "./NavLink.astro";
   <script>
     // @ts-nocheck    DISABLES TS FOR THIS SCRIPT BLOCK
 
-    const NAV_DEFAULTS = {
-      hideOnScroll: true,
-      hideAfter: 80,
-      showAtTop: true,
-      hiddenClass: "-translate-y-[200px]",
-    };
+    // const NAV_DEFAULTS = {
+    //   hideOnScroll: true,
+    //   hideAfter: 80,
+    //   showAtTop: true,
+    //   hiddenClass: "-translate-y-[200px]",
+    // };
 
-    function initNav(userOptions = {}) {
-      const options = { ...NAV_DEFAULTS, ...userOptions };
+    // function initNav(userOptions = {}) {
+    //   const options = { ...NAV_DEFAULTS, ...userOptions };
 
-      const nav = document.querySelector("nav");
-      if (!nav || !options.hideOnScroll) return;
+    //   const nav = document.querySelector("nav");
+    //   if (!nav || !options.hideOnScroll) return;
 
-      let lastScrollY = window.scrollY;
-      let accumulatedDownScroll = 0;
+    //   let lastScrollY = window.scrollY;
+    //   let accumulatedDownScroll = 0;
 
-      function onScroll() {
-        const currentScrollY = window.scrollY;
-        const delta = currentScrollY - lastScrollY;
+    //   function onScroll() {
+    //     const currentScrollY = window.scrollY;
+    //     const delta = currentScrollY - lastScrollY;
 
-        // Always visible near top
-        if (options.showAtTop && currentScrollY < options.hideAfter) {
-          nav.classList.remove(options.hiddenClass);
-          accumulatedDownScroll = 0;
-          lastScrollY = currentScrollY;
-          return;
-        }
+    //     // Always visible near top
+    //     if (options.showAtTop && currentScrollY < options.hideAfter) {
+    //       nav.classList.remove(options.hiddenClass);
+    //       accumulatedDownScroll = 0;
+    //       lastScrollY = currentScrollY;
+    //       return;
+    //     }
 
-        // Scrolling down
-        if (delta > 0) {
-          accumulatedDownScroll += delta;
-          if (accumulatedDownScroll >= options.hideAfter) {
-            nav.classList.add(options.hiddenClass);
-          }
-        }
+    //     // Scrolling down
+    //     if (delta > 0) {
+    //       accumulatedDownScroll += delta;
+    //       if (accumulatedDownScroll >= options.hideAfter) {
+    //         nav.classList.add(options.hiddenClass);
+    //       }
+    //     }
 
-        // Scrolling up
-        if (delta < 0) {
-          nav.classList.remove(options.hiddenClass);
-          accumulatedDownScroll = 0;
-        }
+    //     // Scrolling up
+    //     if (delta < 0) {
+    //       nav.classList.remove(options.hiddenClass);
+    //       accumulatedDownScroll = 0;
+    //     }
 
-        lastScrollY = currentScrollY;
-      }
+    //     lastScrollY = currentScrollY;
+    //   }
 
-      window.addEventListener("scroll", onScroll);
+    //   window.addEventListener("scroll", onScroll);
 
-      // Cleanup for SPAs / reuse
-      return () => {
-        window.removeEventListener("scroll", onScroll);
-      };
-    }
+    //   // Cleanup for SPAs / reuse
+    //   return () => {
+    //     window.removeEventListener("scroll", onScroll);
+    //   };
+    // }
 
     // MOBILE NAV BUTTON BEHAVIOUR
     function initMobileMenu() {
@@ -193,6 +193,7 @@ import NavLink from "./NavLink.astro";
 
         mobileMenu.classList.toggle("opacity-0");
         mobileMenu.classList.toggle("opacity-100");
+        mobileMenu.classList.toggle("z-50");
         document.body.classList.toggle("overflow-hidden");
       };
 
@@ -200,7 +201,7 @@ import NavLink from "./NavLink.astro";
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-      initNav();
+      // initNav();
       initMobileMenu();
     });
   </script>

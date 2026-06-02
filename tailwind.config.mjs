@@ -12,8 +12,8 @@ export default {
         secondary: "#ff00fe",
       },
       fontFamily: {
-        heading: ["Anton", "sans-serif"],
-        body: ["Orbitron", "sans-serif"],
+        heading: ["Oxanium", "sans-serif"],
+        body: ["Exo 2", "sans-serif"],
       },
     },
   },

@@ -1,10 +1,12 @@
-/* font imports */
-@import "@fontsource/orbitron/400.css";
-@import "@fontsource/orbitron/500.css";
-@import "@fontsource/orbitron/700.css";
-@import "@fontsource/orbitron/900.css";
+/* Display font (headings, hero, logo) */
+@import "@fontsource/oxanium/400.css";
+@import "@fontsource/oxanium/600.css";
+@import "@fontsource/oxanium/700.css";
 
-@import "@fontsource/anton/400.css";
+/* UI font (buttons, paragraphs, labels) */
+@import "@fontsource/exo-2/400.css";
+@import "@fontsource/exo-2/600.css";
+@import "@fontsource/exo-2/700.css";
 
 @tailwind base;
 @tailwind components;
@@ -15,4 +17,22 @@
   .hamburger-bar {
     @apply block h-0.5 w-6 bg-brand-50 duration-300;
   }
+}
+
+/* animations */
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.blink {
+  animation: blink 2.2s ease-in-out infinite;
 }
