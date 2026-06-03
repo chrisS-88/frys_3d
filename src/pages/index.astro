@@ -1,5 +1,6 @@
 ---
 import Button from "../components/Button.astro";
+import FeatureCard from "../components/FeatureCard.astro";
 import Hero from "../components/Hero.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
@@ -35,30 +36,20 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <div class="max-w-lg px-6 mx-auto space-y-8">
       <h2 class="text-4xl font-heading text-primary tracking-wide">Why choose a local maker</h2>
 
-      <div class="space-y-6">
-        <div>
-          <h3 class="font-display text-white text-lg">Personal Service</h3>
-          <p class="text-white/70 leading-relaxed">
-            You’re not dealing with a big shop. It’s just me — friendly, flexible, and happy to help.
-          </p>
-        </div>
+      <div class="grid gap-6 md:grid-cols-2">
+        <FeatureCard
+          title="Personal Service"
+          description="You’re not dealing with a big shop. It’s just me — friendly, flexible, and happy to help."
+        />
 
-        <div>
-          <h3 class="font-display text-white text-lg">Quick Turnaround</h3>
-          <p class="text-white/70 leading-relaxed">If the printer’s free, your job gets done fast.</p>
-        </div>
+        <FeatureCard title="Quick Turnaround" description="If the printer’s free, your job gets done fast." />
 
-        <div>
-          <h3 class="font-display text-white text-lg">Affordable</h3>
-          <p class="text-white/70 leading-relaxed">No big markups. Just fair prices for materials, time, and a bit of hobby joy.</p>
-        </div>
+        <FeatureCard title="Affordable" description="No big markups. Just fair prices for materials, time, and a bit of hobby joy." />
 
-        <div>
-          <h3 class="font-display text-white text-lg">Made Nearby</h3>
-          <p class="text-white/70 leading-relaxed">
-            Everything’s printed right here in West Yorkshire — no long waits, no overseas shipping.
-          </p>
-        </div>
+        <FeatureCard
+          title="Made Nearby"
+          description="Everything’s printed right here in West Yorkshire — no long waits, no overseas shipping."
+        />
       </div>
     </div>
   </section>

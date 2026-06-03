@@ -3,9 +3,9 @@ import Button from "./Button.astro";
 import GraphBg from "./svgs/Graph_bg.astro";
 ---
 
-<section class="relative h-screen pt-12 pb-24">
+<section class="relative min-h-screen flex items-center">
   <div class="absolute inset-0 overflow-hidden">
-    <GraphBg class="text-brand-50/5 object-cover" />
+    <GraphBg class="text-brand-50/5 h-full w-full object-cover" />
   </div>
 
   <div class="relative max-w-lg px-6 pt-24 mx-auto">
@@ -16,7 +16,7 @@ import GraphBg from "./svgs/Graph_bg.astro";
       From custom parts to fun little gadgets — everything’s printed right here at home, with care, curiosity, and a love for making cool
       stuff.
     </p>
-    <div class="my-12">
+    <div class="my-20">
       <Button href="/contact" variant="primary" label="Got an idea? Let’s print it." />
     </div>
   </div>

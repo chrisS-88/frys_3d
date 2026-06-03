@@ -52,7 +52,7 @@ import NavLink from "./NavLink.astro";
           rounded-xl border border-brand-50/10
           overflow-hidden shadow-xl
           opacity-0
-          transition-all duration-500 ease-out">
+          transition-all duration-500 ease-out pointer-events-none">
     <ul class="flex flex-col justify-center gap-6 text-2xl px-4 py-24">
       {
         navLinks.map((link, i) => {
@@ -193,7 +193,8 @@ import NavLink from "./NavLink.astro";
 
         mobileMenu.classList.toggle("opacity-0");
         mobileMenu.classList.toggle("opacity-100");
-        mobileMenu.classList.toggle("z-50");
+        mobileMenu.classList.toggle("pointer-events-none");
+        mobileMenu.classList.toggle("pointer-events-auto");
         document.body.classList.toggle("overflow-hidden");
       };
 
