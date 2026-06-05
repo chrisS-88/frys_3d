@@ -15,11 +15,16 @@ const { title = "Website Title" } = Astro.props;
     <title>{title}</title>
   </head>
 
-  <body class="font-body bg-brand-800 text-brand-50">
+  <body class="font-body bg-brand-800 text-brand-50 overflow-x-hidden">
     <Header />
     <main>
       <slot />
     </main>
     <Footer />
+
+    <script>
+      import { initParallax } from "../../pennine-design-system/utils/parallax.js";
+      initParallax();
+    </script>
   </body>
 </html>

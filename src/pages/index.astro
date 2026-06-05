@@ -3,19 +3,24 @@ import Button from "../components/Button.astro";
 import FeatureCard from "../components/FeatureCard.astro";
 import Hero from "../components/Hero.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import GraphBg from "../components/svgs/Graph_bg.astro";
 ---
 
 <BaseLayout>
-  <section>
+  <section class="">
     <Hero />
+
+    <div
+      data-parallax
+      data-parallax-speed="2"
+      data-parallax-base="translate(-50%, -50%)"
+      class="absolute top-full left-2/3 pointer-events-none w-[150vw] lg:w-[90vw]">
+      <img src="/3d_lattice.webp" class="w-full opacity-40 saturate-0 animate-float z-0" />
+    </div>
   </section>
 
-  <section class="py-24">
+  <section class="relative py-24 bg-brand-900 border-t-2 border-b-2 border-secondary">
     <div class="max-w-lg px-6 mx-auto space-y-4">
-      <!-- <div class="w-full max-w-sm h-3 bg-white/10 rounded-full overflow-hidden">
-        <div class="h-full w-[70%] bg-gradient-to-r from-secondary/20 to-secondary rounded-full blink"></div>
-      </div> -->
-
       <h2 class="text-4xl font-heading text-primary tracking-wide">A little side‑gig with a lot of passion</h2>
 
       <div class="max-w-md space-y-2">
@@ -32,7 +37,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </div>
   </section>
 
-  <section class="py-12">
+  <section class="py-24 bg-brand-900/90">
     <div class="max-w-lg px-6 mx-auto space-y-8">
       <h2 class="text-4xl font-heading text-primary tracking-wide">Why choose a local maker</h2>
 
@@ -54,7 +59,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </div>
   </section>
 
-  <section class="py-24">
+  <section class="py-24 bg-brand-900/90">
     <div class="max-w-sm px-6 text-center mx-auto space-y-6">
       <h2 class="text-4xl font-heading text-primary tracking-wide">Want something printed?</h2>
 
